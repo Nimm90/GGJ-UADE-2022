@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8246073314511417023
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f919ac4720d5248982754f841513d8, type: 3}
+  m_Name: InvertedPPSSettings
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  _UDisplacement:
+    overrideState: 0
+    value: 0.37
 --- !u!114 &-5708023461927689747
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -62,6 +81,7 @@ MonoBehaviour:
   settings:
   - {fileID: -5708023461927689747}
   - {fileID: 1282388244186324802}
+  - {fileID: -8246073314511417023}
 --- !u!114 &1282388244186324802
 MonoBehaviour:
   m_ObjectHideFlags: 3
