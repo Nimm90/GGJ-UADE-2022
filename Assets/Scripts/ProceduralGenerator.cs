@@ -35,9 +35,10 @@ public class ProceduralGenerator : MonoBehaviour
         if (_platInterval.Tick(Time.deltaTime))
         {
             _platInterval.Reset();
-
-           Instantiate(_platform, new Vector3(_platform.transform.position.x, 7, 0) , Quaternion.identity );
-            //SPAWN PLATFORMS
+            
+           Instantiate(_platform, new Vector3(Random.Range(40, 59), 7, 0) ,
+                Quaternion.identity );
+            
         }
 
         if (_enInterval.Tick(Time.deltaTime))
