@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f919ac4720d5248982754f841513d8, type: 3}
   m_Name: InvertedPPSSettings
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1406,13 +1406,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86427e459e5eec4f99ef0efded74434, type: 3}
   m_Name: PixelatedPPSSettings
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   _XPixels:
     overrideState: 1
-    value: 1920
+    value: 256
   _YPixels:
     overrideState: 1
-    value: 1080
+    value: 256

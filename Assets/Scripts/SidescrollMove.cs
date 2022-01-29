@@ -6,6 +6,7 @@ public class SidescrollMove : PlayerActions
     [SerializeField] private float _speed = 5f;
 
     private SpriteRenderer _spriteRenderer;
+    [SerializeField] private PlayerPlatformerData data;
 
     private void Awake()
     {
@@ -14,13 +15,13 @@ public class SidescrollMove : PlayerActions
 
     private void Update()
     {
-        float hor = Input.GetAxis("Horizontal");
+        var hor = Input.GetAxis("Horizontal");
 
         if (hor < 0)
             _spriteRenderer.flipX = true;
         else if (hor > 0)
             _spriteRenderer.flipX = false;
 
-        transform.position += _speed * Time.deltaTime * hor * Vector3.right;
+        transform.position += data.MovementSpeed * Time.deltaTime * hor * Vector3.right;
     }
 }
