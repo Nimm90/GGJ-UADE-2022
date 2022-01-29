@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99b8115b5394d3418db59374130fc6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velCaida: 0
+  _velCaida: 0.3

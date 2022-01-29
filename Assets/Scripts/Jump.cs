@@ -90,7 +90,4 @@ public class Jump : PlayerActions
     {
         _isJumping = false;        
     }
-    
-
-    
 }

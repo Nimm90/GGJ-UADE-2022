@@ -7,6 +7,8 @@ public class ProceduralGenerator : MonoBehaviour
     [SerializeField] private float _minPlatformWidth, _maxPlatformWidth;
     [SerializeField] private float _platformInterval;
     private Interval _platInterval;
+    [SerializeField] private Transform[] _platformSpawnPoints;
+    private Vector3 _platformScale;
 
     [Header("Enemies")]
     [SerializeField] private GameObject[] _enemiesPrefabs;
@@ -17,6 +19,8 @@ public class ProceduralGenerator : MonoBehaviour
     private void Start()
     {
         InitIntervals();
+
+        _platformScale = _platform.transform.localScale;
     }
 
     private void Update()
@@ -35,10 +39,13 @@ public class ProceduralGenerator : MonoBehaviour
         if (_platInterval.Tick(Time.deltaTime))
         {
             _platInterval.Reset();
-            
-           Instantiate(_platform, new Vector3(Random.Range(40, 59), 7, 0) ,
-                Quaternion.identity );
-            
+
+            GameObject go = Instantiate(_platform,
+                 _platformSpawnPoints[Random.Range(0, _enemySpawnPoints.Length)].position,
+                 Quaternion.identity);
+
+            _platformScale.x = Random.Range(_minPlatformWidth, _maxPlatformWidth);
+            go.transform.localScale = _platformScale;
         }
 
         if (_enInterval.Tick(Time.deltaTime))
