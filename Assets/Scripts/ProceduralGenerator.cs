@@ -36,6 +36,7 @@ public class ProceduralGenerator : MonoBehaviour
         {
             _platInterval.Reset();
 
+           Instantiate(_platform, new Vector3(_platform.transform.position.x, 7, 0) , Quaternion.identity );
             //SPAWN PLATFORMS
         }
 
