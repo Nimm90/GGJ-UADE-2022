@@ -8,7 +8,7 @@ public class Jump : PlayerActions
 
     private Rigidbody2D _rb;
     private Ray2D ray;
-    private float _rayDistance = 0.51f;
+    private float _rayDistance = 0.53f;
 
     [SerializeField] private KeyCode jumpKeycode1 = KeyCode.Space;
     [SerializeField] private KeyCode jumpKeyCode2 = KeyCode.W;
