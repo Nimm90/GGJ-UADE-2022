@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f919ac4720d5248982754f841513d8, type: 3}
   m_Name: InvertedPPSSettings
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   _UDisplacement:
-    overrideState: 0
-    value: 0.37
+    overrideState: 1
+    value: 1
 --- !u!114 &-5708023461927689747
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -82,6 +82,7 @@ MonoBehaviour:
   - {fileID: -5708023461927689747}
   - {fileID: 1282388244186324802}
   - {fileID: -8246073314511417023}
+  - {fileID: 8088968605960648444}
 --- !u!114 &1282388244186324802
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1393,3 +1394,25 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &8088968605960648444
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86427e459e5eec4f99ef0efded74434, type: 3}
+  m_Name: PixelatedPPSSettings
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  _XPixels:
+    overrideState: 1
+    value: 1920
+  _YPixels:
+    overrideState: 1
+    value: 1080
