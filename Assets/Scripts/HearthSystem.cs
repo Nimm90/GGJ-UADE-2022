@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class HearthSystem : MonoBehaviour
 {
+    [Header("Hearts Array")]
     [SerializeField] GameObject[] _hearts;
+
+    [Header("Shooting Player")]
     [SerializeField] GameObject _player;
 
     private int _life;
