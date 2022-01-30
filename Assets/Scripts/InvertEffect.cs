@@ -7,19 +7,32 @@ public class InvertEffect : MonoBehaviour
 {
     [SerializeField] private float _speed = 0.1f;
     private InvertedPPSSettings _invertFXSettings;
+    [SerializeField] private AnimationCurve curve;
+    private float _lerper;
+    [SerializeField] private float returnWaitTime;
+    private WaitForSeconds _waitCommand;
 
     private void Start()
     {
-        PostProcessVolume volume = gameObject.GetComponent<PostProcessVolume>();
+        var volume = gameObject.GetComponent<PostProcessVolume>();
         volume.profile.TryGetSettings(out _invertFXSettings);
+        _waitCommand = new WaitForSeconds(returnWaitTime);
+
+        StartCoroutine(LerpDisplacement());
     }
-
-    private void Update()
+    private IEnumerator LerpDisplacement()
     {
-        if (_invertFXSettings._UDisplacement.value >= 1
-            || _invertFXSettings._UDisplacement.value <= 0)
-            _speed *= -1;
+        while (true)
+        {
+            _lerper += _speed * Time.deltaTime;
+            if (_lerper > 1 || _lerper < 0)
+            {
+                yield return _waitCommand;
+                _speed *= -1;
+            }
 
-        _invertFXSettings._UDisplacement.value += _speed * Time.deltaTime;
+            _invertFXSettings._UDisplacement.value = curve.Evaluate(_lerper);
+            yield return null;
+        }
     }
 }

@@ -9,6 +9,7 @@ public class ProceduralGenerator : MonoBehaviour
     private Interval _platInterval;
     [SerializeField] private Transform[] _platformSpawnPoints;
     private Vector3 _platformScale;
+    private int _lastPickedPlatform;
 
     [Header("Enemies")]
     [SerializeField] private GameObject[] _enemiesPrefabs;
@@ -40,8 +41,18 @@ public class ProceduralGenerator : MonoBehaviour
         {
             _platInterval.Reset();
 
-            GameObject go = Instantiate(_platform,
-                 _platformSpawnPoints[Random.Range(0, _enemySpawnPoints.Length)].position,
+            var randomPlatPoint = Random.Range(0, _platformSpawnPoints.Length);
+            if (_lastPickedPlatform == randomPlatPoint)
+            {
+                randomPlatPoint += randomPlatPoint == 0 ? 1 : -1;
+            }
+
+            _lastPickedPlatform = randomPlatPoint;
+            
+            Debug.Log($"random plat point picked is {randomPlatPoint}");
+
+            var go = Instantiate(_platform,
+                 _platformSpawnPoints[randomPlatPoint].position,
                  Quaternion.identity);
 
             _platformScale.x = Random.Range(_minPlatformWidth, _maxPlatformWidth);

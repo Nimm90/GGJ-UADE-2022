@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -12,7 +13,8 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private string sceneToLoad;
 
-    public event Action OnToggle;
+    public UnityEvent OnAnyButtonPress;
+
     private void Awake()
     {
         Init();
@@ -28,22 +30,24 @@ public class MainMenu : MonoBehaviour
     {
         creditsScreen.SetActive(!creditsScreen.activeSelf);
         mainScreen.SetActive(!mainScreen.activeSelf);
+        OnAnyButtonPress?.Invoke();
     }
 
     public void GoToPlay()
     {
         SceneManager.LoadScene(sceneToLoad);
+        OnAnyButtonPress?.Invoke();
     }
 
     public void QuitGame()
     {
-        #if UNITY_EDITOR
+        OnAnyButtonPress?.Invoke();
+#if UNITY_EDITOR
+
         EditorApplication.isPlaying = false;
         return;
-        #endif
-        
-        Application.Quit();
-        
-    }
+#endif
 
+        Application.Quit();
+    }
 }
