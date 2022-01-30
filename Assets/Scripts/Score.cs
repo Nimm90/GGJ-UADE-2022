@@ -46,7 +46,6 @@ public class Score : MonoBehaviour
         if(scoreGO) _text = scoreGO.GetComponent<TMP_Text>();
 
         _isPlaying = scene.name == "Game";
-        if (_isPlaying) return;
 
         if (scene.name != "Lose") Reset();
 
