@@ -1,4 +1,4 @@
-﻿using System;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,14 +12,18 @@ public class SwitchWorlds : MonoBehaviour
     [SerializeField] private GameObject _playerShoot, _playerJump;
 
     [SerializeField] private AudioSource _changeWorldSFX;
+    [SerializeField] private TextMeshProUGUI _text;
 
     public UnityEvent<bool> OnSwitchWorld;
+
 
     private void Start()
     {
         _mainCamera = Camera.main;
 
         _changeWorldSFX = Instantiate(_changeWorldSFX);
+
+        _text.color = Color.white;
     }
 
     private void Update()
@@ -33,6 +37,7 @@ public class SwitchWorlds : MonoBehaviour
                 _jumpWorldCamera.gameObject.SetActive(true);
                 SetPlayerActionsActive(_playerJump, false);
                 SetPlayerActionsActive(_playerShoot, true);
+                _text.color = Color.white;
             }
             else
             {
@@ -41,6 +46,7 @@ public class SwitchWorlds : MonoBehaviour
                 _shootWorldCamera.gameObject.SetActive(true);
                 SetPlayerActionsActive(_playerJump, true);
                 SetPlayerActionsActive(_playerShoot, false);
+                _text.color = Color.black;
             }
             _isInJumpWorld = !_isInJumpWorld;
 
