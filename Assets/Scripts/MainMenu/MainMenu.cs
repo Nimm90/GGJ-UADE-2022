@@ -42,8 +42,8 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         OnAnyButtonPress?.Invoke();
-#if UNITY_EDITOR
 
+#if UNITY_EDITOR
         EditorApplication.isPlaying = false;
         return;
 #endif

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
@@ -11,17 +10,32 @@ public class HealthSystem : MonoBehaviour
     private float _currentInvincibilityTime;
     public event Action<int, bool> OnChangeHealth;
     public event Action OnDeath;
+
+    [SerializeField] private ParticleSystem _dieFeedback;
+
+    [SerializeField] private HealthSystem _otherPlayer;
+
+    private bool _isDead = false;
+
     private void OnCollisionEnter2D(Collision2D c)
     {
         if(c.gameObject.layer == 9)
         {     
             OnTakeDamage(1);
+
+            Damageable d = c.gameObject.GetComponent<Damageable>();
+            if (d) d.Die();
         }
     }
 
     private void Awake()
     {
         _currentPlayerHP = playerMaxHP;
+    }
+
+    private void Start()
+    {
+        OnDeath += OnDie;
     }
 
     private void Update()
@@ -35,7 +49,10 @@ public class HealthSystem : MonoBehaviour
     {
         if (_currentInvincibilityTime > 0)
             return;
+
         _currentPlayerHP -= damageToTake;
+
+        OnChangeHealth?.Invoke(_currentPlayerHP,true);
         
         if (_currentPlayerHP <= 0)
         {
@@ -43,8 +60,6 @@ public class HealthSystem : MonoBehaviour
             OnDeath?.Invoke();
             return;
         }
-        
-        OnChangeHealth?.Invoke(_currentPlayerHP,true);
     }
 
     public void OnHeal(int healAmount)
@@ -59,5 +74,36 @@ public class HealthSystem : MonoBehaviour
         
         OnChangeHealth?.Invoke(_currentPlayerHP,false);
     }
-    
+
+    public void OnDie()
+    {
+        if (_isDead) return;
+
+        _isDead = true;
+
+        StartCoroutine(DieCoroutine());
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        _otherPlayer.OnDie();
+
+        _dieFeedback.gameObject.SetActive(true);
+
+        SetPlayerActionsActive(gameObject, false);
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
+        yield return new WaitForSeconds(_dieFeedback.main.duration + 0.002f);
+
+        GetComponent<SceneChanger>().ChangeToTargetScene("Lose");
+    }
+
+    private void SetPlayerActionsActive(GameObject player, bool active)
+    {
+        PlayerActions[] playerActions = player.GetComponents<PlayerActions>();
+
+        foreach (var pa in playerActions)
+            pa.enabled = active;
+    }
 }

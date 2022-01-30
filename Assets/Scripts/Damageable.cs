@@ -5,6 +5,8 @@ public class Damageable : MonoBehaviour
 {
     [SerializeField] private int life = 5;
 
+    [SerializeField] private ParticleSystem _feedback;
+
     public event Action<Damageable> OnDeath;
 
     public void TakeDamage(int damage)
@@ -15,9 +17,12 @@ public class Damageable : MonoBehaviour
             Die();
     }
 
-    private void Die()
+    public void Die()
     {
         OnDeath?.Invoke(this);
+
+        Instantiate(_feedback, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }
