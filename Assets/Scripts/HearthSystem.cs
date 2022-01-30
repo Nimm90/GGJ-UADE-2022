@@ -21,6 +21,8 @@ public class HearthSystem : MonoBehaviour
 
     private void UpdateHeartDisplay(int healthLeft, bool isDamage)
     {
+        if (healthLeft <= 0) return;
+
         if (isDamage)
         {
             //Kill hearts
@@ -39,7 +41,7 @@ public class HearthSystem : MonoBehaviour
         }
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -50,5 +52,5 @@ public class HearthSystem : MonoBehaviour
         {
             UpdateHeartDisplay(2,false);
         }
-    }
+    }*/
 }
