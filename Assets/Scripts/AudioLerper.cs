@@ -11,6 +11,12 @@ public class AudioLerper : MonoBehaviour
     private Coroutine _lerpAudioCoroutine;
 
 
+    private void Awake()
+    {
+        normalAudio.volume = 1;
+        reverseAudio.volume = 0;
+    }
+
     public void LerpAudio(bool toReverse)
     {
         if (_lerpAudioCoroutine != null)
