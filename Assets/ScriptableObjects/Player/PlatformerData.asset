@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fae0f77ad0d36b449804fbee871d7b28, type: 3}
   m_Name: PlatformerData
   m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 5
-  <JumpForce>k__BackingField: 8
-  <JumpTime>k__BackingField: 0.23
+  <MovementSpeed>k__BackingField: 5.5
+  <JumpForce>k__BackingField: 8.5
+  <JumpTime>k__BackingField: 0.25
