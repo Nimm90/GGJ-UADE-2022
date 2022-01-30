@@ -11,6 +11,8 @@ public class HealthSystem : MonoBehaviour
     public event Action<int, bool> OnChangeHealth;
     public event Action OnDeath;
 
+    [SerializeField] private AudioSource _dieSFX;
+    [SerializeField] private AudioSource _takeDamageSFX;
     [SerializeField] private ParticleSystem _dieFeedback;
 
     [SerializeField] private HealthSystem _otherPlayer;
@@ -36,6 +38,9 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         OnDeath += OnDie;
+
+        _takeDamageSFX = Instantiate(_takeDamageSFX);
+        _dieSFX = Instantiate(_dieSFX);
     }
 
     private void Update()
@@ -52,6 +57,8 @@ public class HealthSystem : MonoBehaviour
 
         _currentPlayerHP -= damageToTake;
 
+        _takeDamageSFX.Play();
+
         OnChangeHealth?.Invoke(_currentPlayerHP,true);
         
         if (_currentPlayerHP <= 0)
@@ -64,7 +71,6 @@ public class HealthSystem : MonoBehaviour
 
     public void OnHeal(int healAmount)
     {
-        
         _currentPlayerHP -= healAmount;
         
         if (_currentPlayerHP > playerMaxHP)
@@ -89,6 +95,8 @@ public class HealthSystem : MonoBehaviour
         _otherPlayer.OnDie();
 
         _dieFeedback.gameObject.SetActive(true);
+        if(_dieSFX)
+            _dieSFX.Play();
 
         SetPlayerActionsActive(gameObject, false);
         GetComponent<Renderer>().enabled = false;

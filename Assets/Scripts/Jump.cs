@@ -21,6 +21,8 @@ public class Jump : PlayerActions
     private bool _isGrounded;
     private bool _doubleJumpUsed;
 
+    [SerializeField] private AudioSource _jumpSFX;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -29,6 +31,8 @@ public class Jump : PlayerActions
     private void Start()
     {
         ray = new Ray2D(transform.position, -transform.up);
+
+        _jumpSFX = Instantiate(_jumpSFX);
     }
 
     private void Update()
@@ -70,6 +74,9 @@ public class Jump : PlayerActions
         _jumpTimeCounter = data.JumpTime;
 
         _rb.velocity = Vector2.up * data.JumpForce;
+
+        if (_jumpSFX)
+            _jumpSFX.Play();
     }
 
     public void HoldJump()

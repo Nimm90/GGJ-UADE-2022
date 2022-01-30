@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 5
+  _takeDamageSFX: {fileID: 8534488795499426177, guid: f544496aa56f14fd4b2564fd147c8f0f, type: 3}
   _feedback: {fileID: 4727864170508823770, guid: 08ad14f157ee36748b49d21b58e35396, type: 3}
 --- !u!58 &1029120061464584980
 CircleCollider2D:

@@ -11,11 +11,15 @@ public class SwitchWorlds : MonoBehaviour
     [SerializeField] private bool _isInJumpWorld = false;
     [SerializeField] private GameObject _playerShoot, _playerJump;
 
+    [SerializeField] private AudioSource _changeWorldSFX;
+
     public UnityEvent<bool> OnSwitchWorld;
 
     private void Start()
     {
         _mainCamera = Camera.main;
+
+        _changeWorldSFX = Instantiate(_changeWorldSFX);
     }
 
     private void Update()
@@ -39,6 +43,9 @@ public class SwitchWorlds : MonoBehaviour
                 SetPlayerActionsActive(_playerShoot, false);
             }
             _isInJumpWorld = !_isInJumpWorld;
+
+            if(_changeWorldSFX)
+                _changeWorldSFX.Play();
             
             OnSwitchWorld?.Invoke(_isInJumpWorld);
         }
