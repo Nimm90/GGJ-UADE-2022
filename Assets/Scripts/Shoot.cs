@@ -8,9 +8,13 @@ public class Shoot : PlayerActions
 
     [SerializeField] private GameObject _bulletPrefab;
 
+    [SerializeField] private AudioSource _shootSFX;
+
     private void Start()
     {
         _fr = _fireRate;
+
+        _shootSFX = Instantiate(_shootSFX);
     }
 
     private void Update()
@@ -22,6 +26,10 @@ public class Shoot : PlayerActions
         _fr = _fireRate;
 
         if(Input.GetMouseButton(0))
+        {
             Instantiate(_bulletPrefab, transform.position, transform.rotation);
+            if (_shootSFX)
+                _shootSFX.Play();
+        }
     }
 }

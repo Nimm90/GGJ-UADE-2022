@@ -5988,6 +5988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMaxHP: 3
   invincibilityTime: 0
+  _dieSFX: {fileID: 6826602404861783559, guid: 43bd962ee3cd548ae853a45d16272378, type: 3}
+  _takeDamageSFX: {fileID: 4954844201088408873, guid: 845187909b2544dfd98e1da144866bf9, type: 3}
   _dieFeedback: {fileID: 921123995}
   _otherPlayer: {fileID: 5007610635840322113}
 --- !u!1 &869688546
@@ -7437,7 +7439,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697807285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.14, y: 3.65, z: 0}
+  m_LocalPosition: {x: 3.06, y: 3.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1295765079}
@@ -8007,6 +8009,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1371730838915710368, guid: 7e93c37d90abd49fdadb3141b10c8aa9, type: 3}
+      propertyPath: _shootSFX
+      value: 
+      objectReference: {fileID: 3068973584517506221, guid: 53389267ac59d464fa7f7943085f2361, type: 3}
     - target: {fileID: 1371730838915710373, guid: 7e93c37d90abd49fdadb3141b10c8aa9, type: 3}
       propertyPath: m_Name
       value: Player Shoot
@@ -8107,6 +8113,10 @@ PrefabInstance:
       propertyPath: OnSwitchWorld.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4240016200034367251, guid: 7e93c37d90abd49fdadb3141b10c8aa9, type: 3}
+      propertyPath: _changeWorldSFX
+      value: 
+      objectReference: {fileID: 6117680880799803619, guid: e6219789dff6b476cac81db26c8befb5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e93c37d90abd49fdadb3141b10c8aa9, type: 3}
 --- !u!1 &5007610635840322112 stripped
@@ -8128,6 +8138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMaxHP: 1
   invincibilityTime: 0
+  _dieSFX: {fileID: 6826602404861783559, guid: 43bd962ee3cd548ae853a45d16272378, type: 3}
+  _takeDamageSFX: {fileID: 4954844201088408873, guid: 845187909b2544dfd98e1da144866bf9, type: 3}
   _dieFeedback: {fileID: 1940915758}
   _otherPlayer: {fileID: 854193410}
 --- !u!114 &5007610635840322114
@@ -8271,6 +8283,10 @@ PrefabInstance:
       propertyPath: OnSwitchWorld.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3575439078167792321, guid: 3aa4fb4d99eec47e1affd15c4b4c6954, type: 3}
+      propertyPath: _changeWorldSFX
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6933726501259171810, guid: 3aa4fb4d99eec47e1affd15c4b4c6954, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -8299,7 +8315,12 @@ PrefabInstance:
       propertyPath: data
       value: 
       objectReference: {fileID: 11400000, guid: 8d98ea9abf95b104da15fa90492be259, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 8574145182837527182, guid: 3aa4fb4d99eec47e1affd15c4b4c6954, type: 3}
+      propertyPath: _jumpSFX
+      value: 
+      objectReference: {fileID: 3482280725303197044, guid: 7af08f7a1e2624f52b85fcfe47f80ca4, type: 3}
+    m_RemovedComponents:
+    - {fileID: 3575439078167792321, guid: 3aa4fb4d99eec47e1affd15c4b4c6954, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3aa4fb4d99eec47e1affd15c4b4c6954, type: 3}
 --- !u!1001 &7943325174708019969
 PrefabInstance:
