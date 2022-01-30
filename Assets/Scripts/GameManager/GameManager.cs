@@ -23,8 +23,7 @@ public class GameManager : MonoBehaviour
          return;
       }
       
-      DontDestroyOnLoad(gameObject);
-      
+      //DontDestroyOnLoad(gameObject);
    }
 
    private void DifficultyUp()

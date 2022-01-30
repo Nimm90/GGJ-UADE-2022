@@ -47,7 +47,11 @@ public class Score : MonoBehaviour
 
         _isPlaying = scene.name == "Game";
 
-        if (scene.name != "Lose") Reset();
+        if (scene.name != "Lose")
+        {
+            Reset();
+            //GameManager.Instance.difficultyMultiplier = 1f;
+        }
 
         UpdateText();
     }
