@@ -17,6 +17,6 @@ public class GoToPlayer : MonoBehaviour
     {
         _dir = _player.position - transform.position;
 
-        transform.position += _speed * Time.deltaTime * _dir.normalized;
+        transform.position += _speed * GameManager.Instance.difficultyMultiplier * Time.deltaTime * _dir.normalized;
     }
 }
