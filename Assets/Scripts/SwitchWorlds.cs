@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class SwitchWorlds : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class SwitchWorlds : MonoBehaviour
 
     [SerializeField] private bool _isInJumpWorld = false;
     [SerializeField] private GameObject _playerShoot, _playerJump;
+
+    public UnityEvent<bool> OnSwitchWorld;
 
     private void Start()
     {
@@ -34,8 +38,9 @@ public class SwitchWorlds : MonoBehaviour
                 SetPlayerActionsActive(_playerJump, true);
                 SetPlayerActionsActive(_playerShoot, false);
             }
-
             _isInJumpWorld = !_isInJumpWorld;
+            
+            OnSwitchWorld?.Invoke(_isInJumpWorld);
         }
     }
 

@@ -56,7 +56,7 @@ public class ProceduralGenerator : MonoBehaviour
             }
             else if (randomPlatPoint >= _platformSpawnPoints.Length)
             {
-                randomPlatPoint = _platformSpawnPoints.Length;
+                randomPlatPoint = _platformSpawnPoints.Length-1;
             }
             if (_lastPickedPlatform == randomPlatPoint)
             {
