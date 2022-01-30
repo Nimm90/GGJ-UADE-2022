@@ -234,7 +234,7 @@ MonoBehaviour:
   _platform: {fileID: 3388453084738079421, guid: 77ed92c888069474cb84af82ab31ed7e, type: 3}
   _minPlatformWidth: 2.2
   _maxPlatformWidth: 4.2
-  _platformInterval: 4
+  _platformInterval: 4.8
   _platformSpawnPoints:
   - {fileID: 808308316}
   - {fileID: 892204437}
