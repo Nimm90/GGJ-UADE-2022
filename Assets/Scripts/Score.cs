@@ -43,7 +43,7 @@ public class Score : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GameObject scoreGO = GameObject.Find("Score Text");
-        _text = scoreGO.GetComponent<TMP_Text>();
+        if(scoreGO) _text = scoreGO.GetComponent<TMP_Text>();
 
         _isPlaying = scene.name == "Game";
         if (_isPlaying) return;
