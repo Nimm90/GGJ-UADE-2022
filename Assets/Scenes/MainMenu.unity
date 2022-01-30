@@ -803,5 +803,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Credits Text
       objectReference: {fileID: 0}
+    - target: {fileID: 3719101664615693791, guid: cb8669a11d0c04cf29d232663c4c3f85, type: 3}
+      propertyPath: m_text
+      value: NEGATIVE SOULS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719101664615693791, guid: cb8669a11d0c04cf29d232663c4c3f85, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719101664615693791, guid: cb8669a11d0c04cf29d232663c4c3f85, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb8669a11d0c04cf29d232663c4c3f85, type: 3}
