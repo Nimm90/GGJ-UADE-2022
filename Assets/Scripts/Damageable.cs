@@ -1,20 +1,23 @@
-﻿
+﻿using System;
 using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
-    [SerializeField] private int _life = 5;
+    [SerializeField] private int life = 5;
+
+    public event Action<Damageable> OnDeath;
 
     public void TakeDamage(int damage)
     {
-        _life -= damage;
+        life -= damage;
 
-        if (_life <= 0)
+        if (life <= 0)
             Die();
     }
 
     private void Die()
     {
+        OnDeath?.Invoke(this);
         Destroy(gameObject);
     }
 }

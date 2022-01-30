@@ -19,6 +19,7 @@ public class Jump : PlayerActions
     private float _jumpTimeCounter;
     [SerializeField] private float maxJumpTime;
     private bool _isGrounded;
+    private bool _doubleJumpUsed;
 
     private void Awake()
     {

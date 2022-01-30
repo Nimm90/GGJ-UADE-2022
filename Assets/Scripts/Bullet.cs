@@ -1,10 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 1f;
     [SerializeField] private float _lifetime = 1f;
     [SerializeField] private int _damage = 1;
+
+    public event Action OnBulletHitEnemy;
+
+ 
 
     private void Update()
     {
@@ -21,6 +26,7 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.layer == 9)
         {
             collision.GetComponent<Damageable>()?.TakeDamage(_damage);
+            OnBulletHitEnemy?.Invoke();
             Destroy(gameObject);
         }
     }
