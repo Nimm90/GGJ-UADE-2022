@@ -162,8 +162,9 @@ MonoBehaviour:
   - {fileID: 912732352}
   - {fileID: 957503851}
   - {fileID: 911095345}
+  enemyDeathForPlatform: 0
   _enemiesPrefabs:
-  - {fileID: 6639550844046904089, guid: 3e9cfa039bc944784830eb61e7b4770a, type: 3}
+  - {fileID: 0}
   _enemyInterval: 3
   _enemySpawnPoints:
   - {fileID: 656970001}
@@ -368,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266940016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.6682463, y: 0.27471066, z: 57.53512}
+  m_LocalPosition: {x: -6.7, y: 4.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2061022911}
@@ -723,7 +724,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 518768057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.0682464, y: 0.25471067, z: 57.53512}
+  m_LocalPosition: {x: -7.523, y: 4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2061022911}
@@ -5728,7 +5729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01467afc1c1184c4e82cb555e09118e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHP: 3
+  playerMaxHP: 3
+  invincibilityTime: 0
 --- !u!1 &891034035
 GameObject:
   m_ObjectHideFlags: 0
@@ -6213,7 +6215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284987983}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.4682465, y: 0.25471067, z: 57.53512}
+  m_LocalPosition: {x: -8.346, y: 4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2061022911}
@@ -6855,7 +6857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061022910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.031753317, y: 4.0452895, z: -57.53512}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1284987985}
@@ -6876,11 +6878,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3e94d251d8e6148aa3879ca8575d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hearts:
+  hearts:
   - {fileID: 1284987983}
   - {fileID: 518768057}
   - {fileID: 266940016}
-  _player: {fileID: 854193401}
+  healthSystem: {fileID: 854193410}
 --- !u!1001 &1371730838696036700
 PrefabInstance:
   m_ObjectHideFlags: 0

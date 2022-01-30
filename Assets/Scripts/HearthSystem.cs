@@ -1,31 +1,54 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HearthSystem : MonoBehaviour
 {
-    [Header("Hearts Array")]
-    [SerializeField] GameObject[] _hearts;
 
-    [Header("Shooting Player")]
-    [SerializeField] GameObject _player;
+    [SerializeField] private GameObject[] hearts;
+
+    [Header("Shooting Player")] [SerializeField]
+    private HealthSystem healthSystem;
 
     private int _life;
     // Update is called once per frame
-    void Update()
-    {
-        int _life = _player.GetComponent<PlayerDeath>()._playerHP;
 
-        if (_life < 1)
+    private void Start()
+    {
+        healthSystem.OnChangeHealth += UpdateHeartDisplay;
+    }
+
+    private void UpdateHeartDisplay(int healthLeft, bool isDamage)
+    {
+        if (isDamage)
         {
-            Destroy(_hearts[0].gameObject);
-        }else if (_life < 2)
+            //Kill hearts
+            for (int i = hearts.Length-1; i >= healthLeft; i--)
+            {
+                hearts[i].SetActive(false);
+            }
+            return;
+        }
+
+        //Give hearts back
+
+        for (int i = 0; i < healthLeft; i++)
         {
-            Destroy(_hearts[1].gameObject);
-        }else if (_life < 3)
+            hearts[i].SetActive(true);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
         {
-            Destroy(_hearts[2].gameObject);
+            UpdateHeartDisplay(1,true);
         }
         
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            UpdateHeartDisplay(2,false);
+        }
     }
 }
