@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566114377973100819}
   - component: {fileID: 8534488795499426177}
+  - component: {fileID: 3355840657775600174}
   m_Layer: 0
   m_Name: EnemyTakeDamageSFX
   m_TagString: Untagged
@@ -43,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 789c2d2824c9e2b4a98ffe57c542f48b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -127,3 +128,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3355840657775600174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580422085778317617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab997212815651499ce9059547090b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -26,7 +26,10 @@ public class Damageable : MonoBehaviour
 
         _takeDamageSFX = Instantiate(_takeDamageSFX);
         if (_takeDamageSFX)
+        {
             _takeDamageSFX.Play();
+        }
+            
 
         Destroy(gameObject);
     }
